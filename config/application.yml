@@ -6,4 +6,4 @@ drivers:
   - pattern: "^did:trail:.+"
     url: "http://driver-did-trail:8080/1.0/identifiers/"
     testIdentifiers:
-      - "did:trail:self:z6MknrHzRBzm3CJ3FhiNfmKJriSmtTZB3HbUEZ3NqQveFHJW"
+      - "did:trail:self:zEFoeeXsQtCAK9itr35Hf8W2HF5tAPTrKUKK1nC3RnUx4"
