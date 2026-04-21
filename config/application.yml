@@ -1,0 +1,9 @@
+# Universal Resolver - application.yml addition for did:trail driver
+# Add this block under the `drivers:` key in the main application.yml
+# Reference: https://github.com/decentralized-identity/universal-resolver/blob/main/src/main/resources/application.yml
+
+drivers:
+  - pattern: "^did:trail:.+"
+    url: "http://driver-did-trail:8080/1.0/identifiers/"
+    testIdentifiers:
+      - "did:trail:self:z6MknrHzRBzm3CJ3FhiNfmKJriSmtTZB3HbUEZ3NqQveFHJW"

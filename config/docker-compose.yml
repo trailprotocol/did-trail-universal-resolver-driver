@@ -1,0 +1,17 @@
+# Universal Resolver - docker-compose addition for did:trail driver
+# Add the service below to the main docker-compose.yml of the universal-resolver repo.
+# The driver image should be built and pushed to ghcr.io before adding this.
+
+services:
+  driver-did-trail:
+    image: ghcr.io/trailprotocol/did-trail-universal-resolver-driver:latest
+    # To build locally instead of pulling from registry:
+    # build:
+    #   context: ./drivers/did-trail
+    environment:
+      - PORT=8080
+      # Optional: point at a TRAIL Registry endpoint for org/agent-mode DIDs
+      # - TRAIL_REGISTRY_ENDPOINT=https://registry.trailprotocol.org
+    ports:
+      - "8081:8080"   # expose on 8081 to avoid conflicts; internal routing uses 8080
+    restart: unless-stopped

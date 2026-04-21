@@ -1,0 +1,24 @@
+{
+  "name": "did-trail-universal-resolver-driver",
+  "version": "0.1.0",
+  "description": "DIF Universal Resolver driver for the did:trail method",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "@trailprotocol/core": "file:../trail-did-method/packages/trail-core"
+  },
+  "author": "Christian Hommrich <christian.hommrich@gmail.com>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/decentralized-identity/universal-resolver"
+  }
+}
