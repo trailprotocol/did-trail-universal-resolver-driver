@@ -4,7 +4,8 @@ A [DIF Universal Resolver](https://github.com/decentralized-identity/universal-r
 
 - DID Method Spec: https://trailprotocol.org
 - Method: `did:trail`
-- Driver Image: `ghcr.io/trailprotocol/did-trail-universal-resolver-driver`
+- Driver Image: build locally via Docker (see [Docker](#docker)). A prebuilt
+  `ghcr.io/trailprotocol/did-trail-universal-resolver-driver` image is in preparation.
 
 ---
 
@@ -36,7 +37,7 @@ Resolves a `did:trail` DID and returns a W3C DID Resolution Result.
 GET /1.0/identifiers/did:trail:self:z6Mk...
 ```
 
-**Response** — `200 OK`
+**Response** - `200 OK`
 
 ```json
 {
@@ -64,7 +65,7 @@ GET /1.0/identifiers/did:trail:self:z6Mk...
 }
 ```
 
-**Error** — `404 Not Found`
+**Error** - `404 Not Found`
 
 ```json
 {
@@ -88,7 +89,7 @@ Returns `{ "status": "ok", "driver": "did-trail", "version": "0.1.0" }`.
 
 | Mode | Example | Resolution |
 |------|---------|------------|
-| `self` | `did:trail:self:<multibase-pubkey>` | Local — no registry required |
+| `self` | `did:trail:self:<multibase-pubkey>` | Local - no registry required |
 | `org` / `agent` | `did:trail:<hash>` | Requires `TRAIL_REGISTRY_ENDPOINT` env var |
 
 ---
@@ -144,4 +145,4 @@ npm run dev   # node --watch for live reload
 
 ## License
 
-Apache-2.0 — see [LICENSE](https://github.com/trailprotocol/trail-did-method/blob/main/LICENSE)
+Apache-2.0 - see [LICENSE](https://github.com/trailprotocol/trail-did-method/blob/main/LICENSE)
