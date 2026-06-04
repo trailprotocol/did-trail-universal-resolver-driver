@@ -22,12 +22,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Copy @trailprotocol/core from trail-did-method
+      - name: Copy @trailprotocol/core source from trail-did-method
         run: |
           git clone --depth 1 https://github.com/trailprotocol/trail-did-method.git /tmp/trail-did-method
           cp -r /tmp/trail-did-method/packages/trail-core ./trail-core
-          # Build the TypeScript source so dist/ is available
-          cd trail-core && npm ci && npm run build && cd ..
+          # No pre-build needed: the Dockerfile compiles trail-core's TypeScript
+          # inside the image (dist/ is gitignored in trail-did-method).
 
       - name: Log in to GHCR
         if: github.event_name != 'pull_request'

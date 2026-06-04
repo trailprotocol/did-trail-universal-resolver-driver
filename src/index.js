@@ -16,7 +16,7 @@ app.get('/health', (_req, res) => {
   res.json({ status: 'ok', driver: 'did-trail', version: '0.1.0' });
 });
 
-// DIF Universal Resolver API — W3C DID Resolution
+// DIF Universal Resolver API - W3C DID Resolution
 // Spec: https://w3c-ccg.github.io/did-resolution/
 app.get('/1.0/identifiers/:did(*)', async (req, res) => {
   const did = req.params.did;
@@ -72,6 +72,6 @@ app.listen(PORT, () => {
   if (REGISTRY_ENDPOINT) {
     console.log(`Registry endpoint: ${REGISTRY_ENDPOINT}`);
   } else {
-    console.log('No registry endpoint — self-mode DIDs only');
+    console.log('No registry endpoint - self-mode DIDs only');
   }
 });

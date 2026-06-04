@@ -1,3 +1,7 @@
 node_modules
+**/node_modules
+trail-core/dist
 .git
+.github
 *.md
+.env
