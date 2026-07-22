@@ -38,6 +38,14 @@ jobs:
             fi
           fi
 
+      - name: Verify preflight script is present
+        run: |
+          if [ ! -f scripts/preflight-public-commit.sh ]; then
+            echo "::error::scripts/preflight-public-commit.sh not found at this checkout."
+            echo "::notice::This workflow file and the script it runs must always land in the SAME commit/push -- if they are split across two pushes, any run against the earlier (workflow-only) commit will fail here by design, not because of a leak. Squash or amend so both land together."
+            exit 1
+          fi
+
       - name: Run preflight script
         run: |
           chmod +x scripts/preflight-public-commit.sh
