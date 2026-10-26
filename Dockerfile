@@ -8,7 +8,7 @@
 # "main": "dist/src/index.js" points at a missing file -> ERR_MODULE_NOT_FOUND
 # at runtime. Building it here makes the image self-contained and reproducible.
 # ---------------------------------------------------------------------------
-FROM node:18-alpine AS core-build
+FROM node:24-alpine AS core-build
 WORKDIR /build
 
 # Copy the local @trailprotocol/core source (README step:
@@ -27,7 +27,7 @@ RUN cd trail-core \
 # ---------------------------------------------------------------------------
 # Stage 2: driver dependencies, installed against the freshly built tarball.
 # ---------------------------------------------------------------------------
-FROM node:18-alpine AS deps
+FROM node:24-alpine AS deps
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
@@ -47,7 +47,7 @@ RUN npm install --omit=dev --no-audit --no-fund
 # ---------------------------------------------------------------------------
 # Stage 3: minimal runtime image.
 # ---------------------------------------------------------------------------
-FROM node:18-alpine AS runtime
+FROM node:24-alpine AS runtime
 
 LABEL org.opencontainers.image.title="did:trail Universal Resolver Driver" \
       org.opencontainers.image.description="DIF Universal Resolver driver for the did:trail method" \
